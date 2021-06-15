@@ -1,0 +1,53 @@
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.personal{
+  height: calc(100vh - 100px);
+  background-color: #3fd0d5;
+  width: 100%;
+
+  &_top{
+    width: 100%;
+    height: 250px;
+    background-image: linear-gradient(to right, #1F63C5 ,#0C418F);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &_text{
+      color: white;
+    }
+    &_back{
+      width: 70px;
+      height: 50px;
+      font-size: 60px;
+      color: white;
+      position: relative;
+      left: -40%;
+    }
+  }
+  &_one{
+    height: 30%;
+    width: 100%;
+    background-color: yellow;
+  }
+  &_two{
+    width: 100%;
+    height: 100px;
+    background-color: pink;
+  }
+  &_thr{
+    width: 100%;
+    height: 100px;
+    background-color: greenyellow;
+  }
+  .contact{
+    width: 100%;
+    background-color: #3fd0d5;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-size: 25px;
+  }
+
+}

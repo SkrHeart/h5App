@@ -1,0 +1,101 @@
+@import "~taro-ui/dist/style/components/search-bar.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.main{
+
+  .header{
+    width: 100%;
+    height: 100px;
+    //background-color: pink;
+    display: flex;
+    align-items: center;
+    .headPortrait{
+      border-radius: 50%;
+      margin: 0 40px;
+      width: 80px;
+      height: 80px;
+      background-color: #a4a6a8;
+    }
+    .search{
+      width: 70%;
+      //height: 80px;
+      //background-color: #1F63C5;
+    }
+    taro-ui搜索框的样式
+    .at-search-bar{
+      background-color: transparent;
+      border: 0 solid red;
+    }
+    .weui-input{
+      height: 100%;
+      //line-height: 50px;
+      font-size: 30px;
+      color: #d0cfcf;
+    }
+    .at-icon{
+      font-size: 30px;
+    }
+    .at-search-bar__placeholder{
+      font-size: 30px;
+    }
+    .at-search-bar::after{
+      border: 0 solid transparent;
+    }
+    .at-search-bar__input{
+      height: 100% !important;
+
+    }
+    .at-search-bar__input-cnt{
+      height: 60px;
+      border-radius: 30px;
+      //background-color: #6A89B5aa;
+      border: 2px solid #bbb9b9aa;
+    }
+    .at-search-bar__clear{
+      height: 100%;
+    }
+    .at-search-bar__action{
+      font-weight: bold;
+      color: #ffffff;
+      height: 60px;
+      border-radius: 30px;
+      text-align: center;
+      line-height: 60px;
+      font-size: 25px;
+      background-color: #309caa;
+    }
+  }
+  .main_bar{
+    width: 100%;
+    height: 80px;
+    //background-color: yellow;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid #bfc0c1;
+    .bar{
+
+      font-size: 27px;
+      line-height: 80px;
+      color: #a4a6a8;
+      height: 100%;
+      //background-color: greenyellow;
+      .temp{
+        position: relative;
+        top: -5px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 43px;
+        height: 5px;
+        background-color: #3fd0d5;
+        border-radius: 20px;
+      }
+
+
+    }
+  }
+
+
+}
