@@ -37,25 +37,20 @@ class Index extends Component {
   }
   headClick =()=>{
     this.setState({isFollow:false,isHead:true,isHot:false,isTopic:false,isQa:false})
-
   }
   hotClick =()=>{
     this.setState({isFollow:false,isHead:false,isHot:true,isTopic:false,isQa:false})
-
   }
   topicClick =()=>{
     this.setState({isFollow:false,isHead:false,isHot:false,isTopic:true,isQa:false})
-
   }
   qaClick =()=>{
     this.setState({isFollow:false,isHead:false,isHot:false,isTopic:false,isQa:true})
-
   }
-
-
 
   render () {
 
+    const {color} = this.state.style.color
     return (
       <View className='main'>
         <View className='header'>
@@ -73,19 +68,19 @@ class Index extends Component {
 
         </View>
         <View className='main_bar'>
-          <View style={this.state.isFollow && { color:'#3fd0d5'}} className='bar' onClick={this.followClick}>
+          <View style={this.state.isFollow && { color}} className='bar' onClick={this.followClick}>
             关注<View className={this.state.isFollow && 'temp'}></View>
           </View>
-          <View style={this.state.isHead && { color:'#3fd0d5'}} className='bar' onClick={this.headClick}>
+          <View style={this.state.isHead && { color}} className='bar' onClick={this.headClick}>
             头条<View  className={this.state.isHead && 'temp'}></View>
           </View>
-          <View style={this.state.isHot && { color:'#3fd0d5'}} className='bar' onClick={this.hotClick}>
+          <View style={this.state.isHot && { color}} className='bar' onClick={this.hotClick}>
             热榜<View className={this.state.isHot && 'temp'}></View>
           </View>
-          <View style={this.state.isTopic && { color:'#3fd0d5'}} className='bar' onClick={this.topicClick}>
+          <View style={this.state.isTopic && { color}} className='bar' onClick={this.topicClick}>
             话题<View className={this.state.isTopic && 'temp'}></View>
           </View>
-          <View style={this.state.isQa && { color:'#3fd0d5'}} className='bar' onClick={this.qaClick}>
+          <View style={this.state.isQa && { color}} className='bar' onClick={this.qaClick}>
             问答<View className={this.state.isQa && 'temp'}></View>
           </View>
         </View>

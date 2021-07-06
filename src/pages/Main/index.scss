@@ -4,8 +4,9 @@
 @import "~taro-ui/dist/style/components/button.scss";
 @import "~taro-ui/dist/style/components/loading.scss";
 .index{
-  width: 100%;
-
+  width: 750px;
+  height: calc(100vh - 100px);
+  overflow: auto;
   &_top{
     width: 100%;
     height: 150px;
@@ -34,51 +35,50 @@
     }
   }
   .scrollview{
-
     display: flex;
     overflow: auto;
     font-size: 30px;
     background-color: #d27c61;
     width: 100%;
     height: calc(100vh - 100px - 150px);
-    //white-space: nowrap;
 
-    .firstColumn {
+    .sc1{
 
-      //display: inline-block;
-      min-width: 150px;
-      background-color: aqua;
-      //设置div在最上边对齐
-      //vertical-align: top;
-      .columnFlex{
-        display: flex;
-        height: 150px;
+      .delete{
+        text-align: center;
+        line-height: 25px;
+        width:30px;
+        height: 30px;
+        font-size: 40px;
+        //background-color: #47431f;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        box-sizing: border-box;
+        border: 1px solid black;
       }
-    }
-    .phone {
-      //vertical-align: top;
-      text-align: center;
-      display: inline-block;
-      min-width: 200px;
-      border: 2px solid #a4a6a8;
-      word-break: break-all;
+      background-color: pink;
+      display: flex;
+
       >*{
-        background-color: white;
-        //height: 100px;
-        //word-break: break-all;
-        //overflow-wrap: break-word;
-        white-space:pre-wrap;
+        box-sizing: border-box;
+        padding:10px;
+        min-width: 250px;
+        max-width: 250px;
+        border: 1px solid black;
+        overflow-wrap: break-word;
       }
     }
+
 
     .lastAdd{
       //vertical-align: top;
       display: inline-block;
+      font-size: 45px;
       min-width: 200px;
       height: 200px;
       border: 2px solid #a4a6a8;
     }
-
     .at-modal__content{
       padding: 0;
       display: flex;
@@ -91,8 +91,5 @@
       width: 350px;
       height: 60px;
     }
-
   }
-
 }
-

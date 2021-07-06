@@ -1,0 +1,24 @@
+export default {
+  "totalPhone":6,
+  "hwList":[
+    "华为","华为ad",
+],
+  "oppoList":[
+    "OPPO","OPPOds",
+],
+  "vivoList":[
+    "VIVO","VIVOwda",
+],
+  "samsungList":[
+    "三星","三星fw"
+],
+  "meizuList":[
+    "魅族","魅族adj"
+],
+  "xiaomiList":[
+    "小米","小米wd",
+],
+  "iphoneList":[
+    "苹果","苹果qd",
+]
+}

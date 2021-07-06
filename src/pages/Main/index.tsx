@@ -5,7 +5,9 @@ import { observer} from 'mobx-react'
 import Taro from '@tarojs/taro'
 import counter from "../../store/counter";
 
+
 import './index.scss'
+import phone from "../../utils/phone";
 
 
 
@@ -13,10 +15,12 @@ import './index.scss'
 class Index extends Component {
 
   state={
-    isOpened:false
+    isOpened:false,
+    searchValue:'',
   }
   componentDidMount() {
-    counter.setPhone()
+
+    counter.setPhone('dataList',0)
   }
   componentWillUnmount() {
     counter.emptyPhone()
@@ -37,11 +41,24 @@ class Index extends Component {
   }
   cancelClick=()=>{
     this.setState({isOpened:false})
-    console.log('********************')
+  }
+  deleteClick=(index)=>{
+    counter.deletePhone(index)
   }
   confirmClick=()=>{
+
     this.setState({isOpened:false})
-    console.log('========================')
+    Object.keys(phone).slice(2).map((item)=>{
+      phone[item].map((detailItem,index)=>{
+        if(detailItem.name === this.state.searchValue){
+          counter.setPhone(item,index)
+        }
+      })
+    })
+  }
+  inputValue = (e)=>{
+    this.setState({searchValue : e.target.value})
+
   }
   render () {
 
@@ -55,38 +72,58 @@ class Index extends Component {
           {/*<View className='index_top_search'>搜索</View>*/}
         </View>
         <View className='scrollview'>
-          <View className='firstColumn'>
-            {counter.infoArr.map((item) => {
-              return (
-                <View className='columnFlex'>
-                  <View>{item}</View>
-                </View>
-              )
-            })}
+
+          <View >
+            <View className='sc1'>
+              {
+                counter.phoneArr.map((item,index) => {
+                  return(
+                    <View style={{position:'relative'}}>
+                      <View className='delete' onClick={()=>{this.deleteClick(index)}}>x</View>
+                      {item.id}
+                    </View>
+                  )
+                })
+              }
+            </View>
+            {
+              counter.select.map((name)=>{
+                return(
+                  <View className='sc1'>
+                    {
+                      counter.phoneArr.map((item)=>{
+                        return(
+                          <View>
+                            {item[name]}
+                          </View>
+                        )
+                      })
+                    }
+                  </View>
+                )
+              })
+            }
+
           </View>
-          {counter.phoneArr.map((item) => {
-            return (
-              <View className='phone'>
-                <View>{item.id}</View>
-                <View>{item.name}</View>
-                <View>{item.tags[0]}</View>
-                <View>{item.tags[1]}</View>
-                <View>{item.purchesMoney}</View>
-              </View>
-            )
-          })}
-          <View className='lastAdd' onClick={this.addClick}>添加机型</View>
+
+          {
+            counter.phoneArr.length <  6 &&
+            <View className='lastAdd' onClick={this.addClick}>添加机型</View>
+          }
+
           <AtModal isOpened={this.state.isOpened}>
             <AtModalHeader>请输入想要对比的手机</AtModalHeader>
             <AtModalContent>
-              <input className='addInput'  list='search' defaultValue='111'  />
+              <input className='addInput'  list='search' defaultValue='' onInput={this.inputValue}  />
               <datalist id='search' >
-                <option value='aaa'  />
-                <option value='bbb'  />
-                <option value='ccc'  />
-                <option value='ddd'  />
+                {
+                  Object.keys(phone).slice(2).map((item)=>{
+                     return phone[item].map((detailItem)=>(
+                       <option value={detailItem.name}>{detailItem.name}</option>
+                     ))
+                  })
+                }
               </datalist>
-
             </AtModalContent>
             <AtModalAction>
               <AtButton customStyle={{width:'40%'}} onClick={this.cancelClick}>取消</AtButton>
@@ -94,6 +131,28 @@ class Index extends Component {
             </AtModalAction>
           </AtModal>
         </View>
+
+        {/*<View className='auto'>*/}
+        {/*  {*/}
+        {/*   this.state.select.map((temp)=>{*/}
+        {/*     return(*/}
+        {/*       <View className='ceshi'>*/}
+        {/*         {*/}
+        {/*           counter.phoneArr.map((item)=>{*/}
+        {/*             return(*/}
+        {/*               <View>*/}
+        {/*                 {item[temp]}*/}
+        {/*                 /!*{temp}*!/*/}
+        {/*               </View>*/}
+        {/*             )*/}
+        {/*           })*/}
+        {/*         }*/}
+        {/*       </View>*/}
+        {/*     )*/}
+        {/*   })*/}
+        {/*  }*/}
+
+        {/*</View>*/}
 
       </View>
     )
